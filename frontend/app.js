@@ -103,7 +103,7 @@ async function uploadVideo(file, filename) {
     exerciseSelect.disabled = true;
     
     try {
-        const response = await fetch(`http://localhost:8000/api/upload-video?exercise_type=${exercise}`, {
+        const response = await fetch(`https://ml-model-md0x.onrender.com/api/upload-video?exercise_type=${exercise}`, {
             method: 'POST',
             body: formData
         });
@@ -128,7 +128,7 @@ async function uploadVideo(file, filename) {
 function pollStatus(jobId) {
     const checkStatus = setInterval(async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/video-status/${jobId}`);
+            const response = await fetch(`https://ml-model-md0x.onrender.com/api/video-status/${jobId}`);
             
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}`);
@@ -218,7 +218,7 @@ getAiBtn.addEventListener('click', async () => {
     getAiBtn.textContent = 'Loading...';
     
     try {
-        const response = await fetch('http://localhost:8000/api/ai-feedback', {
+        const response = await fetch('https://ml-model-md0x.onrender.com/api/ai-feedback', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(currentMetrics)
