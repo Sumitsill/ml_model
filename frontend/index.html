@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paglachoda ami</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏋️AI Exercise Trainer</h1>
+            <p>Real-time workout analysis powered by AI</p>
+        </header>
+
+        <div class="main-content">
+           
+            <div class="control-panel">
+                <div class="form-group">
+                    <label for="exercise-select">Select Exercise:</label>
+                    <select id="exercise-select">
+                        <option value="pushup">Push-ups</option>
+                        <option value="squat">Squats</option>
+                        <option value="situp">Sit-ups</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button id="webcam-btn" class="btn btn-primary">
+                        Start Webcam
+                    </button>
+                    <button id="stop-btn" class="btn btn-danger" disabled>
+                         Stop
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <label for="video-upload" class="btn btn-secondary">
+                        Upload Video
+                    </label>
+                    <input type="file" id="video-upload" accept="video/*" hidden>
+
+
+                </div>
+
+
+
+                <div class="stats-panel">
+                    <div class="stat-item">
+
+                        <span class="stat-label">Reps:</span>
+
+                        <span id="reps-count" class="stat-value">0</span>
+
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Stage:</span>
+                        <span id="stage-value" class="stat-value">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Feedback:</span>
+                        <span id="feedback-value" class="stat-value">Setup</span>
+                    </div>
+                </div>
+            </div>
+            <div class="video-container">
+                <canvas id="video-canvas"></canvas>
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Processing...</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="results-section" class="results-section" style="display: none;">
+            <h2>Performance Report</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Overall Score</h3>
+                    <div id="overall-score" class="score-display">-</div>
+                    <div id="rating" class="rating">-</div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Repetitions</h3>
+                    <div id="total-reps" class="metric-value">-</div>
+                    <div class="metric-breakdown">
+                        <span>Good: <strong id="good-reps">-</strong></span>
+                        <span>Bad: <strong id="bad-reps">-</strong></span>
+                    </div>
+                </div>
+
+                <div class="metric-card" id="detailed-scores">
+                    <h3>Detailed Scores</h3>
+                    <div id="scores-list"></div>
+                </div>
+            </div>
+
+            <div class="feedback-section">
+                <h3>💡 AI Coach Feedback</h3>
+                <div id="ai-feedback" class="ai-feedback-box">
+                    <button id="get-ai-btn" class="btn btn-primary">Get AI Feedback</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
